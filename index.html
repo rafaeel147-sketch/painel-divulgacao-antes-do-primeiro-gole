@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#345560">
+  <meta name="description" content="Painel editorial e de prospecção do projeto Antes do Primeiro Gole.">
+  <title>Painel de Divulgação — Antes do Primeiro Gole</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img src="assets/icon.svg" alt="Símbolo do projeto Antes do Primeiro Gole">
+        <div><strong>Antes do Primeiro Gole</strong><span>Painel de divulgação</span></div>
+      </div>
+      <nav aria-label="Navegação principal">
+        <button class="nav-item active" data-view="dashboard">Visão geral</button>
+        <button class="nav-item" data-view="calendar">Calendário</button>
+        <button class="nav-item" data-view="creator">Criar conteúdo</button>
+        <button class="nav-item" data-view="library">Biblioteca</button>
+        <button class="nav-item" data-view="prospects">Prospecção</button>
+        <button class="nav-item" data-view="approvals">Aprovações</button>
+        <button class="nav-item" data-view="metrics">Métricas</button>
+        <button class="nav-item" data-view="settings">Configurações</button>
+      </nav>
+      <div class="safety-box">
+        <strong>Modo seguro</strong>
+        <span>Este MVP não acessa nem controla sua conta do Instagram.</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Abrir menu">☰</button>
+        <div>
+          <h1 id="viewTitle">Visão geral</h1>
+          <p id="todayLabel"></p>
+        </div>
+        <div class="top-actions">
+          <button class="secondary" id="exportButton">Exportar backup</button>
+          <button class="primary" data-go="creator">Novo conteúdo</button>
+        </div>
+      </header>
+
+      <section id="dashboard" class="view active">
+        <div class="hero-card">
+          <div>
+            <span class="eyebrow">ETAPA 1 — ASSISTENTE EDITORIAL</span>
+            <h2>Organize, prepare e aprove. Publique com decisão humana.</h2>
+            <p>Calendário, frases autorizadas, mensagens personalizadas, prospecção e métricas em um único lugar — sem automações invasivas.</p>
+            <div class="hero-actions">
+              <button class="primary" data-go="creator">Criar publicação</button>
+              <button class="secondary" data-go="prospects">Revisar parceiros</button>
+            </div>
+          </div>
+          <img src="assets/capa.svg" alt="Imagem visual Antes do Primeiro Gole">
+        </div>
+
+        <div class="stat-grid" id="statsGrid"></div>
+
+        <div class="two-columns">
+          <article class="card">
+            <div class="card-header"><div><span class="eyebrow">AGENDA</span><h3>Próximas publicações</h3></div><button class="text-button" data-go="calendar">Ver calendário</button></div>
+            <div id="upcomingList" class="stack-list"></div>
+          </article>
+          <article class="card">
+            <div class="card-header"><div><span class="eyebrow">PROSPECÇÃO</span><h3>Contatos prioritários</h3></div><button class="text-button" data-go="prospects">Abrir mapa</button></div>
+            <div id="priorityProspects" class="stack-list"></div>
+          </article>
+        </div>
+
+        <article class="card alert-card">
+          <div><strong>Regra comercial do projeto</strong><p>Livro completo: versão impressa vendida pela UICLAP. Cartilha digital: gratuita. Cartilha física: busca apoio para impressão de qualidade e distribuição gratuita.</p></div>
+          <a class="secondary link-button" href="https://antes-do-primeiro-gole.rafaeel096.chatgpt.site" target="_blank" rel="noopener">Abrir site principal</a>
+        </article>
+      </section>
+
+      <section id="calendar" class="view">
+        <div class="section-actions"><div><p>Planeje conteúdos antes de publicar. Nada é enviado automaticamente.</p></div><button class="primary" id="addScheduleButton">Adicionar item</button></div>
+        <div class="card"><div id="calendarList" class="calendar-list"></div></div>
+      </section>
+
+      <section id="creator" class="view">
+        <div class="creator-grid">
+          <form class="card form-card" id="contentForm">
+            <span class="eyebrow">GERADOR ASSISTIDO</span><h2>Preparar conteúdo</h2>
+            <label>Público<select id="audience"><option value="geral">Público geral</option><option value="empresa">Empresas e apoiadores</option><option value="universidade">Universidades e estudantes</option><option value="saude">Psicologia, Psiquiatria, CAPS e RAPS</option><option value="grupos">AA, NA e grupos de familiares</option></select></label>
+            <label>Formato<select id="format"><option value="post">Post com frase</option><option value="carrossel">Carrossel educativo</option><option value="reel">Roteiro de Reel</option><option value="story">Stories</option><option value="mensagem">Mensagem institucional</option></select></label>
+            <label>Objetivo<select id="objective"><option value="seguir">Convidar para seguir e compartilhar</option><option value="cartilha">Divulgar cartilha digital gratuita</option><option value="livro">Apresentar livro impresso</option><option value="impressao">Buscar apoio à impressão gratuita</option><option value="roda">Conseguir convite para roda de conversa</option></select></label>
+            <label>Frase-base<select id="quoteSelect"></select></label>
+            <label>Contexto adicional<textarea id="contextInput" rows="4" placeholder="Ex.: mencionar a semana acadêmica, ação social da empresa ou experiência vivida."></textarea></label>
+            <button class="primary" type="submit">Gerar rascunho</button>
+          </form>
+
+          <article class="card preview-card">
+            <div class="card-header"><div><span class="eyebrow">PRÉVIA</span><h3>Rascunho para revisão</h3></div><span class="status draft">Rascunho</span></div>
+            <div class="social-preview"><div class="preview-profile"><img src="assets/icon.svg" alt=""><div><strong>@antesdoprimeirogole1</strong><span>Goiânia, Goiás</span></div></div><div class="preview-art" id="previewArt"><blockquote>“O primeiro gole real quase sempre começa antes da boca.”</blockquote></div><div class="preview-caption" id="previewCaption">Escolha os campos e toque em “Gerar rascunho”.</div></div>
+            <div class="button-row"><button class="secondary" id="copyDraftButton">Copiar texto</button><button class="secondary" id="saveDraftButton">Salvar rascunho</button><button class="primary" id="sendApprovalButton">Enviar para aprovação</button></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="library" class="view">
+        <div class="section-actions"><div><p>Use apenas frases e mensagens conferidas. Edite a biblioteca quando necessário.</p></div><button class="primary" id="addQuoteButton">Adicionar frase</button></div>
+        <div class="filter-row"><button class="chip active" data-filter="all">Todas</button><button class="chip" data-filter="livro">Livro</button><button class="chip" data-filter="cartilha">Cartilha</button><button class="chip" data-filter="cta">Chamadas</button></div><div id="libraryGrid" class="library-grid"></div>
+      </section>
+
+      <section id="prospects" class="view">
+        <div class="section-actions"><div><p>O app organiza a abordagem, mas não envia mensagens em massa.</p></div><button class="primary" id="addProspectButton">Novo contato</button></div>
+        <div class="card table-card"><div class="table-wrap"><table><thead><tr><th>Instituição</th><th>Segmento</th><th>Prioridade</th><th>Status</th><th>Próxima ação</th><th></th></tr></thead><tbody id="prospectTable"></tbody></table></div></div>
+      </section>
+
+      <section id="approvals" class="view"><div class="section-actions"><div><p>Revise cada peça antes de copiar para o Instagram, Facebook, WhatsApp ou e-mail.</p></div></div><div id="approvalList" class="approval-grid"></div></section>
+
+      <section id="metrics" class="view">
+        <div class="section-actions"><div><p>Registre manualmente os resultados semanais. Nesta etapa não há coleta automática do Instagram.</p></div><button class="primary" id="addMetricButton">Registrar semana</button></div>
+        <div class="stat-grid" id="metricSummary"></div><div class="card table-card"><div class="table-wrap"><table><thead><tr><th>Semana</th><th>Seguidores</th><th>Compartilhamentos</th><th>Salvamentos</th><th>Respostas</th><th>Convites</th></tr></thead><tbody id="metricTable"></tbody></table></div></div>
+      </section>
+
+      <section id="settings" class="view">
+        <div class="settings-grid">
+          <article class="card"><span class="eyebrow">LINKS OFICIAIS</span><h3>Destinos autorizados</h3><label>Site principal<input id="siteSetting" type="url"></label><label>Compra do livro — UICLAP<input id="bookSetting" type="url"></label><label>Instagram<input id="instagramSetting" type="text"></label><label>E-mail<input id="emailSetting" type="email"></label><label>WhatsApp<input id="whatsappSetting" type="text"></label><button class="primary" id="saveSettingsButton">Salvar configurações</button></article>
+          <article class="card"><span class="eyebrow">DADOS E SEGURANÇA</span><h3>Controle local</h3><p>Os dados deste MVP ficam somente no navegador do aparelho. Faça backups periódicos.</p><div class="button-stack"><button class="secondary" id="importButton">Importar backup</button><input type="file" id="importFile" accept="application/json" hidden><button class="danger" id="resetButton">Restaurar dados iniciais</button></div><hr><strong>O aplicativo não faz</strong><ul class="plain-list"><li>login com senha do Instagram;</li><li>seguir, curtir ou comentar automaticamente;</li><li>mensagens diretas em massa;</li><li>raspagem de perfis ou seguidores;</li><li>publicação sem aprovação.</li></ul></article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="genericDialog"><form method="dialog" id="dialogForm"><div class="dialog-header"><h3 id="dialogTitle">Adicionar</h3><button value="cancel" class="icon-button" aria-label="Fechar">×</button></div><div id="dialogFields"></div><div class="button-row"><button value="cancel" class="secondary">Cancelar</button><button value="default" class="primary" id="dialogSaveButton">Salvar</button></div></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
