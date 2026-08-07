@@ -1,0 +1,11 @@
+{
+  "name":"Painel de Divulgação — Antes do Primeiro Gole",
+  "short_name":"Divulgação APG",
+  "start_url":"./index.html",
+  "display":"standalone",
+  "background_color":"#f7f3ea",
+  "theme_color":"#345560",
+  "lang":"pt-BR",
+  "description":"Assistente editorial, calendário, prospecção e aprovações do projeto Antes do Primeiro Gole.",
+  "icons":[{"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
