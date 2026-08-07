@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Antes do Primeiro Gole">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#345560"/><stop offset="1" stop-color="#d6a958"/></linearGradient></defs>
+<rect width="512" height="512" rx="112" fill="#f7f3ea"/><path d="M112 390V170c0-27 21-48 48-48h192c27 0 48 21 48 48v220" fill="none" stroke="url(#g)" stroke-width="34" stroke-linecap="round"/><path d="M177 390V224h158v166" fill="#fff" stroke="#345560" stroke-width="18"/><circle cx="256" cy="307" r="22" fill="#d6a958"/><path d="M256 86v88" stroke="#d6a958" stroke-width="18" stroke-linecap="round"/>
+</svg>
